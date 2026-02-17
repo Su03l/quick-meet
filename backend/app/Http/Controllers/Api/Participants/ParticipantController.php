@@ -32,6 +32,7 @@ class ParticipantController extends Controller
             ]);
         }
 
+        // start the transaction
         return DB::transaction(function () use ($meeting, $data) {
             $currentMeeting = Meeting::where('id', $meeting->id)->lockForUpdate()->first();
 
