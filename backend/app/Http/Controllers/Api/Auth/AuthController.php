@@ -12,6 +12,7 @@ class AuthController extends Controller
 {
     use ApiResponseTrait;
 
+    // Login user
     public function login(Request $request)
     {
         $credentials = $request->validate([
