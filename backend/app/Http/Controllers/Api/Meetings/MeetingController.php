@@ -60,6 +60,7 @@ class MeetingController extends Controller
         return $this->successResponse(new MeetingResource($meeting->load(['agendaItems', 'participants'])));
     }
 
+    // update meeting details and agenda items
     public function update(Request $request, Meeting $meeting)
     {
         $this->authorize('update', $meeting);
