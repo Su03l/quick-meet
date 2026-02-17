@@ -34,9 +34,7 @@ class ProfileController extends Controller
         return $this->successResponse(new UserResource($user), 'تم تحديث الملف الشخصي بنجاح');
     }
 
-    /**
-     * Change the authenticated user's password.
-     */
+    // change user password
     public function changePassword(Request $request)
     {
         $request->validate([
