@@ -34,6 +34,7 @@ class MeetingController extends Controller
         return $this->successResponse(MeetingResource::collection($meetings));
     }
 
+    // create a new meeting
     public function store(Request $request)
     {
         $data = $request->validate([
