@@ -34,6 +34,7 @@ class AuthController extends Controller
         ], 'تم تسجيل الدخول بنجاح');
     }
 
+    // Register user
     public function register(Request $request)
     {
         $data = $request->validate([
