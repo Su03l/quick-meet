@@ -53,6 +53,7 @@ class MeetingController extends Controller
         return $this->successResponse(new MeetingResource($meeting), 'تم إنشاء الاجتماع بنجاح', 201);
     }
 
+    // show meeting details and agenda items
     public function show(Meeting $meeting)
     {
         $this->authorize('view', $meeting);
