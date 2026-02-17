@@ -18,6 +18,7 @@ class MeetingController extends Controller
 {
     use AuthorizesRequests, ApiResponseTrait;
 
+    // MeetingController
     protected $meetingService;
 
     public function __construct(MeetingService $meetingService)
