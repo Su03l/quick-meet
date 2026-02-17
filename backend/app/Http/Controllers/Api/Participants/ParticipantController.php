@@ -15,9 +15,10 @@ class ParticipantController extends Controller
 {
     use ApiResponseTrait;
 
+    // Register a participant for a meeting
     public function register(Request $request, Meeting $meeting)
     {
-        // إذا كان المستخدم مسجل دخول، نسحب بياناته، وإلا نتحقق من البيانات المرسلة
+        // check if user is logged in or not
         if (Auth::guard('sanctum')->check()) {
             $user = Auth::guard('sanctum')->user();
             $data = [
