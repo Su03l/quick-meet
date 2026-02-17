@@ -107,6 +107,7 @@ class MeetingController extends Controller
         return $this->successResponse(new MeetingResource($meeting->load('agendaItems')), 'تم تحديث حالة الاجتماع بنجاح');
     }
 
+    // register a participant for a meeting
     public function toggleAgendaItem(Meeting $meeting, AgendaItem $item)
     {
         $this->authorize('update', $meeting);
