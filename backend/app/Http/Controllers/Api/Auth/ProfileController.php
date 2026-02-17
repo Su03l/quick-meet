@@ -13,9 +13,7 @@ class ProfileController extends Controller
 {
     use ApiResponseTrait;
 
-    /**
-     * Display the authenticated user's profile.
-     */
+    // show user profile
     public function show(Request $request)
     {
         return $this->successResponse(new UserResource($request->user()), 'تم جلب بيانات الملف الشخصي');
