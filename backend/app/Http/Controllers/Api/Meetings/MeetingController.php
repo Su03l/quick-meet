@@ -120,6 +120,7 @@ class MeetingController extends Controller
         return $this->successResponse(new AgendaItemResource($item), 'تم تحديث حالة بند الأجندة');
     }
 
+    // show meeting participants and their attendance
     public function participants(Meeting $meeting)
     {
         $this->authorize('view', $meeting);
