@@ -19,9 +19,7 @@ class ProfileController extends Controller
         return $this->successResponse(new UserResource($request->user()), 'تم جلب بيانات الملف الشخصي');
     }
 
-    /**
-     * Update the authenticated user's profile information.
-     */
+    // update user profile
     public function update(Request $request)
     {
         $user = $request->user();
