@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Mail;
 
 class MeetingService
 {
-    /**
-     * إنشاء اجتماع جديد مع الأجندة الخاصة به
-     */
+   // create a new meeting with agenda items
     public function createMeeting(array $data, int $userId): Meeting
     {
         return DB::transaction(function () use ($data, $userId) {
@@ -39,9 +37,7 @@ class MeetingService
         });
     }
 
-    /**
-     * تحديث حالة الاجتماع (بدء التايمر)
-     */
+    // start a meeting and update its status
     public function startMeeting(Meeting $meeting)
     {
         return $meeting->update([
@@ -50,9 +46,7 @@ class MeetingService
         ]);
     }
 
-    /**
-     * إرسال التقارير النهائية لجميع المشاركين
-     */
+    // send the final reports to all participants of the meeting
     public function sendFinalReports(Meeting $meeting)
     {
         $meeting->load(['agendaItems', 'participants']);
