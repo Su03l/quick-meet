@@ -27,6 +27,7 @@ class MeetingController extends Controller
         $this->meetingService = $meetingService;
     }
 
+    // show all meetings for the user
     public function index(Request $request)
     {
         $meetings = $request->user()->meetings()->with('agendaItems')->latest()->paginate(10);
