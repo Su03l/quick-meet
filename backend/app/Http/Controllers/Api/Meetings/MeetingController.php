@@ -85,6 +85,7 @@ class MeetingController extends Controller
         return $this->successResponse(null, 'تم حذف الاجتماع بنجاح');
     }
 
+    // update meeting status (draft, scheduled, live, ended)
     public function updateStatus(Request $request, Meeting $meeting)
     {
         $this->authorize('update', $meeting);
