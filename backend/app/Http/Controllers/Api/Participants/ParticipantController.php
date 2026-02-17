@@ -41,14 +41,16 @@ class ParticipantController extends Controller
                 return $this->errorResponse('عفواً، الجلسة اكتملت!', 422);
             }
 
+            // check if the user is already registered
             $exists = $currentMeeting->participants()->where('email', $data['email'])->exists();
             if ($exists) {
                 return $this->errorResponse('أنت مسجل مسبقاً في هذا الاجتماع!', 422);
             }
 
+            // create the participant
             $participant = $currentMeeting->participants()->create($data);
 
-            // إرسال الإيميل (تأكد من تشغيل php artisan queue:work)
+            // send the invitation email
             Mail::to($participant->email)->send(new MeetingInvitation($currentMeeting));
 
             return $this->successResponse(null, 'تم تسجيلك بنجاح، تفقد بريدك الإلكتروني!');
