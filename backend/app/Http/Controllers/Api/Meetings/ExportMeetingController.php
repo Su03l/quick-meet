@@ -11,6 +11,7 @@ class ExportMeetingController extends Controller
 {
     use AuthorizesRequests;
 
+    // Export meeting report as PDF
     public function __invoke(Meeting $meeting)
     {
         $this->authorize('view', $meeting);
