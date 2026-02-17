@@ -58,6 +58,7 @@ class AuthController extends Controller
         ], 'تم إنشاء الحساب بنجاح', 201);
     }
 
+    // Logout user
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
