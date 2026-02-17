@@ -36,6 +36,7 @@ class ParticipantController extends Controller
         return DB::transaction(function () use ($meeting, $data) {
             $currentMeeting = Meeting::where('id', $meeting->id)->lockForUpdate()->first();
 
+            // check if the meeting is full
             if ($currentMeeting->participants()->count() >= $currentMeeting->max_participants) {
                 return $this->errorResponse('عفواً، الجلسة اكتملت!', 422);
             }
