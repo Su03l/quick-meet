@@ -21,6 +21,7 @@ class MeetingController extends Controller
     // MeetingController
     protected $meetingService;
 
+    // Constructor for MeetingController
     public function __construct(MeetingService $meetingService)
     {
         $this->meetingService = $meetingService;
