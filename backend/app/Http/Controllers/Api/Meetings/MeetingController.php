@@ -77,6 +77,7 @@ class MeetingController extends Controller
         return $this->successResponse(new MeetingResource($meeting->load('agendaItems')), 'تم تحديث الاجتماع بنجاح');
     }
 
+    // delete a meeting and its agenda items
     public function destroy(Meeting $meeting)
     {
         $this->authorize('delete', $meeting);
